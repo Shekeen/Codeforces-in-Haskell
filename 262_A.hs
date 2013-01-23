@@ -11,9 +11,7 @@ checkHappyDigits (_:ls) n = checkHappyDigits ls n
 
 main = do
      nkStr <- getLine
-     let nk = map (read :: String -> Int) $ words nkStr
-         n = nk!!0
-         k = nk!!1
+     let _ : k : [] = map (read :: String -> Int) $ words nkStr
      numsStr <- getLine
      let nums = words numsStr
      print $ foldl (\ a num -> if (checkHappyDigits num k) then (a+1) else a) 0 nums

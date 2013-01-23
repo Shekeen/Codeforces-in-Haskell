@@ -16,11 +16,9 @@ solve k a = if (last kFirst) == (head rest)
 
 main = do
      nkStr <- getLine
-     let nk = map (read :: String -> Int) $ words nkStr
-         n = nk!!0
-         k = nk!!1
+     let n : k : [] = map read $ words nkStr
      aStr <- getLine
-     let a = qsort $ map (read :: String -> Int) $ words aStr
+     let a = qsort $ map read $ words aStr
      if k < n
      then putStrLn $ unwords $ map show $ solve k a
      else if k == n
