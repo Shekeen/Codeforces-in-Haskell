@@ -10,7 +10,7 @@ solve a b
 printSolution :: IO ()
 printSolution = do
               numsStr <- getLine
-              let n1 : n2 : [] = map read $ words numsStr
+              let [n1, n2] = map read $ words numsStr
               print $ solve n1 n2
 
 printNSolutions :: Int -> IO ()

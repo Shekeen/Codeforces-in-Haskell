@@ -14,7 +14,7 @@ solve k neg pos
       
 main = do
      nkStr <- getLine
-     let _ : k : [] = map (read :: String -> Int) $ words nkStr
+     let [_, k] = map read $ words nkStr
      revenuesStr <- getLine
-     let (negative, positive) = span (<0) $ map (read :: String -> Int) $ words revenuesStr
+     let (negative, positive) = span (<0) $ map read $ words revenuesStr
      print $ solve k negative positive

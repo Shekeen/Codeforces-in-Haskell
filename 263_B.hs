@@ -16,7 +16,7 @@ solve k a = if (last kFirst) == (head rest)
 
 main = do
      nkStr <- getLine
-     let n : k : [] = map read $ words nkStr
+     let [n, k] = map read $ words nkStr
      aStr <- getLine
      let a = qsort $ map read $ words aStr
      if k < n

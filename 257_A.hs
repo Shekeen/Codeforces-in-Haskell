@@ -25,7 +25,7 @@ solve m k xs = case (solveM m k xs) of
                     
 main = do
      nmkStr <- getLine
-     let _ : m : k : [] = map read $ words nmkStr
+     let [_, m, k] = map read $ words nmkStr
      electricStr <- getLine
      let electric = qsort $ map read $ words electricStr
      print $ solve m k electric

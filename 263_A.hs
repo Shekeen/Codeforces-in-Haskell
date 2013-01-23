@@ -26,5 +26,5 @@ solve mat = distance (2,2) $ getCoords mat
 main = do
      matrixStr <- getContents
      let matrixChr = map words $ lines matrixStr
-         matrix = map (map (read :: String -> Int)) matrixChr
+         matrix = map (map read) matrixChr
      print $ solve matrix

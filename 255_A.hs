@@ -21,5 +21,5 @@ solve ex = solve' 0 0 0 Chest ex
 
 main = do
      getLine
-     exercises <- fmap ((map (read :: String -> Int)) . words) getLine
+     exercises <- fmap ((map read) . words) getLine
      putStrLn $ solve exercises
