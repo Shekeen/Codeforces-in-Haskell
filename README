@@ -1,1 +1,5 @@
 My solutions for some Codeforces problems in Haskell
+
+Notes:
+- My solution for 272C problem is not tested on Codeforces, because it generates
+compilation error there due to absence of mtl package.
