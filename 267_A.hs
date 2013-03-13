@@ -18,7 +18,6 @@ printNSolutions 1 = printSolution
 printNSolutions n = do
                 printSolution
                 printNSolutions (n-1)
-                
-main = do
-     getLine >>= (printNSolutions . read)
-     
+
+main = getLine >>= (printNSolutions . read)
+

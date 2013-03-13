@@ -14,4 +14,4 @@ main = do
      let [_, k] = map read $ words nkStr
      numsStr <- getLine
      let nums = words numsStr
-     print $ foldl (\ a num -> if (checkHappyDigits num k) then (a+1) else a) 0 nums
+     print $ foldl (\ a num -> if checkHappyDigits num k then a+1 else a) 0 nums

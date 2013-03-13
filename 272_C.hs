@@ -1,5 +1,6 @@
 module Main where
 
+import Control.Monad
 import Control.Monad.State
 import Data.List
 import Data.Int
@@ -23,6 +24,6 @@ throwBoxes ((w,h):bs) = do
            throwBoxes bs
 
 main = do
-     ladder <- (getLine >> getLine >>= (return . map read . words)) :: IO Ladder
-     boxes <- (getLine >> getContents >>= (return . map (makeTuple . map read . words) . lines)) :: IO [(Int64, Int64)]
+     ladder <- liftM (map read . words) (getLine >> getLine) :: IO Ladder
+     boxes <- liftM (map (makeTuple . map read . words) . lines) (getLine >> getContents) :: IO [(Int64, Int64)]
      mapM_ print $ evalState (throwBoxes boxes) (ladder, [])

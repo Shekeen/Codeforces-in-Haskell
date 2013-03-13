@@ -10,5 +10,5 @@ main = do
   paramStr <- getLine
   restaurantsStr <- getContents
   let [_, timeLimit] = map read $ words paramStr
-      restaurants = (map (map read . words)) $ lines restaurantsStr
+      restaurants = map (map read . words) $ lines restaurantsStr
   print $ maximum $ map (satisfaction timeLimit) restaurants

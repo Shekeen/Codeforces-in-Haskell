@@ -3,16 +3,13 @@ module Main where
 data Muscle = Chest | Biceps | Back
 
 max3 :: Int -> Int -> Int -> String
-max3 a b c = if a > b
-             then if a > c
-                  then "chest"
-                  else "back"
-             else if b > c
-                  then "biceps"
-                  else "back"
+max3 a b c
+  | a > b = if a > c then "chest" else "back"
+  | b > c = "biceps"
+  | otherwise = "back"
 
 solve :: [Int] -> String
-solve ex = solve' 0 0 0 Chest ex
+solve = solve' 0 0 0 Chest
       where
       solve' a b c _ [] = max3 a b c
       solve' a b c Chest (x:xs) = solve' (a+x) b c Biceps xs
@@ -21,5 +18,5 @@ solve ex = solve' 0 0 0 Chest ex
 
 main = do
      getLine
-     exercises <- fmap ((map read) . words) getLine
+     exercises <- fmap (map read . words) getLine
      putStrLn $ solve exercises
